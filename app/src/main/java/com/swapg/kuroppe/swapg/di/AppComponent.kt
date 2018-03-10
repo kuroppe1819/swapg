@@ -14,7 +14,8 @@ import javax.inject.Singleton
             AppModule::class,
             ViewModule::class,
             HttpClientModule::class,
-            RepositoryModule::class
+            RepositoryModule::class,
+            ViewModelModule::class
         ]
 )
 
