@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 data class Post(
         val id: String?,
-        @SerializedName("jpeg_url")
-        val jpeg: String?
+        @SerializedName("file_url")
+        val fileUrl: String?,
+        @SerializedName("sample_url")
+        val sampleUrl: String?,
+        @SerializedName("preview_url")
+        val previewUrl: String?
 )
