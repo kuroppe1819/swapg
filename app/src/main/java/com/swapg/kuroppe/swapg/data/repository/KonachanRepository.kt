@@ -1,7 +1,8 @@
 package com.swapg.kuroppe.swapg.data.repository
 
-import io.reactivex.Completable
+import com.swapg.kuroppe.swapg.data.api.response.Post
+import io.reactivex.Flowable
 
 interface KonachanRepository {
-    fun getKonachanPosts(): Completable
+    fun loadKonachanPosts(): Flowable<List<Post>>
 }
