@@ -1,8 +1,8 @@
 package com.swapg.kuroppe.swapg.data.repository
 
-import android.util.Log
 import com.swapg.kuroppe.swapg.data.api.KonachanService
-import io.reactivex.Completable
+import com.swapg.kuroppe.swapg.data.api.response.Post
+import io.reactivex.Flowable
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,12 +11,7 @@ class KonachanRepositoryImpl @Inject constructor(
         private val service: KonachanService
 ) : KonachanRepository {
 
-    override fun getKonachanPosts(): Completable {
-        Log.d("konachan", "call getKonachanPosts")
-        return service.getPosts()
-                .toCompletable()
-                .onErrorResumeNext {
-                    Completable.create { emitter -> emitter.onError(it) }
-                }
+    override fun loadKonachanPosts(): Flowable<List<Post>> {
+        return service.getPosts().toFlowable()
     }
 }
