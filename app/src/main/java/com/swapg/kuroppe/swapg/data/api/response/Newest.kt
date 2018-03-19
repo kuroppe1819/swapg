@@ -2,7 +2,7 @@ package com.swapg.kuroppe.swapg.data.api.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Newtest(
+data class Newest(
         val id: String?,
         @SerializedName("file_url")
         val fileUrl: String?,

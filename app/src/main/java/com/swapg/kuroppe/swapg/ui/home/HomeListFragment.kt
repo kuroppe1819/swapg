@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.swapg.kuroppe.swapg.databinding.FragmentHomeBinding
-import com.swapg.kuroppe.swapg.ui.item.NewtestItem
+import com.swapg.kuroppe.swapg.ui.item.NewestItem
 import com.swapg.kuroppe.swapg.util.ViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -36,7 +36,7 @@ class HomeListFragment : DaggerFragment() {
         binding.homeRecycler.adapter = GroupAdapter<ViewHolder>().apply { add(section) }
         viewModel.newtest().observe(this, Observer { list ->
             list?.let {
-                section.update(it.map { post -> NewtestItem(post) })
+                section.update(it.map { post -> NewestItem(post) })
             }
         })
     }

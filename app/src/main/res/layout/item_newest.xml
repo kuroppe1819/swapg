@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="newtest"
-            type="com.swapg.kuroppe.swapg.data.api.response.Newtest" />
+            name="newest"
+            type="com.swapg.kuroppe.swapg.data.api.response.Newest" />
 
         <variable
             name="imageUrl"
