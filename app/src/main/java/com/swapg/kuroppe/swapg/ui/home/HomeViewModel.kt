@@ -1,16 +1,16 @@
-package com.swapg.kuroppe.swapg.viewmodel
+package com.swapg.kuroppe.swapg.ui.home
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.LiveDataReactiveStreams
 import android.arch.lifecycle.ViewModel
-import com.swapg.kuroppe.swapg.data.api.response.Post
+import com.swapg.kuroppe.swapg.data.api.response.Newtest
 import com.swapg.kuroppe.swapg.data.repository.KonachanRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.reactivestreams.Publisher
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
         private val repository: KonachanRepository
 ) : ViewModel() {
 
@@ -18,8 +18,8 @@ class MainViewModel @Inject constructor(
     fun <T> Publisher<T>.toLiveData() = LiveDataReactiveStreams.fromPublisher(this)
 
     // TODO: Implements onError
-    fun posts() : LiveData<List<Post>> {
-        return repository.loadKonachanPosts()
+    fun newtest() : LiveData<List<Newtest>> {
+        return repository.loadNewtest()
                 .subscribeOn(Schedulers.single())
                 .observeOn(AndroidSchedulers.mainThread())
                 .toLiveData()
