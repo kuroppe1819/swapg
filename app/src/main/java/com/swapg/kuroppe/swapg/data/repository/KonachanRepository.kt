@@ -1,8 +1,8 @@
 package com.swapg.kuroppe.swapg.data.repository
 
-import com.swapg.kuroppe.swapg.data.api.response.Post
+import com.swapg.kuroppe.swapg.data.api.response.Newtest
 import io.reactivex.Flowable
 
 interface KonachanRepository {
-    fun loadKonachanPosts(): Flowable<List<Post>>
+    fun loadNewtest(): Flowable<List<Newtest>>
 }

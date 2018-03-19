@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="post"
-            type="com.swapg.kuroppe.swapg.data.api.response.Post" />
+            name="newtest"
+            type="com.swapg.kuroppe.swapg.data.api.response.Newtest" />
 
         <variable
             name="imageUrl"
