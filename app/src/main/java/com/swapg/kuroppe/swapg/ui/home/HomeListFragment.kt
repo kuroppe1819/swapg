@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.swapg.kuroppe.swapg.databinding.FragmentHomeBinding
-import com.swapg.kuroppe.swapg.ui.item.NewtestItem
+import com.swapg.kuroppe.swapg.ui.item.NewestItem
 import com.swapg.kuroppe.swapg.util.ViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -19,7 +19,7 @@ class HomeListFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var binding : FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val section = Section()
 
     private val viewModel: HomeViewModel by lazy {
@@ -36,12 +36,19 @@ class HomeListFragment : DaggerFragment() {
         binding.homeRecycler.adapter = GroupAdapter<ViewHolder>().apply { add(section) }
         viewModel.newtest().observe(this, Observer { list ->
             list?.let {
-                section.update(it.map { post -> NewtestItem(post) })
+                section.update(it.map { post -> NewestItem(post) })
             }
         })
     }
 
     companion object {
-        fun newInstance() : HomeListFragment = HomeListFragment()
+        const val CONTENT_TAB_NAME = "ContentTabName"
+
+        fun newInstance(name:String):HomeListFragment {
+            val bundle = Bundle()
+            return HomeListFragment().apply {
+                bundle.putString(CONTENT_TAB_NAME, name)
+            }
+        }
     }
 }
