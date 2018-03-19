@@ -1,4 +1,4 @@
-package com.swapg.kuroppe.swapg.viewmodel
+package com.swapg.kuroppe.swapg.util
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
