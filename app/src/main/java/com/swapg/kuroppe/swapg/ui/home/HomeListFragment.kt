@@ -19,7 +19,7 @@ class HomeListFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var binding : FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val section = Section()
 
     private val viewModel: HomeViewModel by lazy {
@@ -42,6 +42,13 @@ class HomeListFragment : DaggerFragment() {
     }
 
     companion object {
-        fun newInstance() : HomeListFragment = HomeListFragment()
+        const val CONTENT_TAB_NAME = "ContentTabName"
+
+        fun newInstance(name:String):HomeListFragment {
+            val bundle = Bundle()
+            return HomeListFragment().apply {
+                bundle.putString(CONTENT_TAB_NAME, name)
+            }
+        }
     }
 }

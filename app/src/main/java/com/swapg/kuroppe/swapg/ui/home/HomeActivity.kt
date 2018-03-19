@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import com.swapg.kuroppe.swapg.R
 import com.swapg.kuroppe.swapg.databinding.ActivityMainBinding
+import com.swapg.kuroppe.swapg.model.ContentTabs
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,19 +23,11 @@ class HomeActivity : AppCompatActivity() {
         binding.tab.setupWithViewPager(binding.viewPager)
     }
 
-    class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    inner class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        override fun getItem(position: Int): Fragment = HomeListFragment.newInstance(ContentTabs.values()[position].name)
 
-        enum class Tab {
-            NEWTEST() {
-                override val fragment: Fragment
-                    get() = HomeListFragment.newInstance()
-            };
+        override fun getCount(): Int = ContentTabs.values().size
 
-            abstract val fragment: Fragment
-        }
-
-        override fun getItem(position: Int): Fragment = Tab.values()[position].fragment
-
-        override fun getCount(): Int = Tab.values().size
+        override fun getPageTitle(position: Int): CharSequence? = ContentTabs.values()[position].name
     }
 }
